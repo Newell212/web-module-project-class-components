@@ -1,5 +1,5 @@
 import React from 'react'
-import Todo from './Todo'
+import TodoList from './TodoList'
 
 export default class App extends React.Component {
   constructor() {
@@ -9,7 +9,7 @@ export default class App extends React.Component {
       {
         name: 'Organize Garage',
         id: 1528817077286, // could look different, you could use a timestamp to generate it
-        completed: true
+        completed: false
       },
       {
         name: 'Bake Cookies',
@@ -35,14 +35,7 @@ export default class App extends React.Component {
     return (
       <div>
         <h1>Todos</h1>
-        <ul>
-          {
-            todos.map(todo=> {
-              return(<Todo todo={todo}/>)
-            })
-          }
-        </ul>
-
+        <TodoList todos={todos}/>
         <form>
           <input/>
           <button>Add</button>
