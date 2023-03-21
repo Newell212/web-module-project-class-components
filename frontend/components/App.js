@@ -1,4 +1,5 @@
 import React from 'react'
+import Todo from './Todo'
 
 export default class App extends React.Component {
   constructor() {
@@ -8,7 +9,7 @@ export default class App extends React.Component {
       {
         name: 'Organize Garage',
         id: 1528817077286, // could look different, you could use a timestamp to generate it
-        completed: false
+        completed: true
       },
       {
         name: 'Bake Cookies',
@@ -37,7 +38,7 @@ export default class App extends React.Component {
         <ul>
           {
             todos.map(todo=> {
-              return(<li>{todo.name} {todo.completed?<span>- completed</span> : <span></span>}</li>)
+              return(<Todo todo={todo}/>)
             })
           }
         </ul>
