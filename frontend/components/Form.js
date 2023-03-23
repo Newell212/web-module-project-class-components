@@ -10,6 +10,7 @@ export default class Form extends React.Component {
   handleSubmit = (e) => {
     e.preventDefault();
     this.props.handleAdd(this.state.input);
+    
   }
 
   handleChange = (e) => {
@@ -18,11 +19,14 @@ export default class Form extends React.Component {
       input: e.target.value
     })
   }
+
+ 
+ 
   render() {
     return (
       <form>
       <input onChange={this.handleChange}/>
-      <button onClick={this.handleSubmit}>Add</button>
+      <button onClick={this.handleSubmit} >Add</button>
     </form>
     )
   }

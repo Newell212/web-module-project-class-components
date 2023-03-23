@@ -19,12 +19,12 @@ export default class App extends React.Component {
       },
       {
         name: 'Vacuum the floor',
-        id: 1528817084358,
+        id: 1528817084359,
         completed: false
       },
       {
         name: 'Clean the Car',
-        id: 1528817084358,
+        id: 1528817084350,
         completed: false
       }
     ]
@@ -54,13 +54,28 @@ handleAdd = (task) => {
     });
   }
 
+  handleToggle = (clickedId) => {
+    this.setState({
+      ...this.state,
+      todos: this.state.todos.map(todo=> {
+        if(todo.id === clickedId) {
+          return {
+            ...todo,
+            completed: !todo.completed
+          }
+        }
+        return todo;
+      })
+    })
+  }
+
   render() {
     const {todos} = this.state;
-    console.log(todos);
+    
     return (
       <div>
         <h1>Todos</h1>
-        <TodoList  todos={todos}/>
+        <TodoList handleToggle={this.handleToggle} todos={todos}/>
         <Form handleAdd={this.handleAdd}/>
         <button onClick={this.handleClear}>Remove</button>
       </div>
