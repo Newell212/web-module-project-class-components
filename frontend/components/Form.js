@@ -10,6 +10,7 @@ export default class Form extends React.Component {
   handleSubmit = (e) => {
     e.preventDefault();
     this.props.handleAdd(this.state.input);
+    this.state.input = "";
     
   }
 
@@ -18,7 +19,10 @@ export default class Form extends React.Component {
       ...this.state,
       input: e.target.value
     })
+    
   }
+
+ 
 
  
  
